@@ -2,10 +2,11 @@ import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
 import { GifGrid } from "./components/GifGrid";
 import Swal from "sweetalert2";
+import { PlaceHolder } from "./components/PlaceHolder";
 
 export const GifExpertApp = () => {
-  const [categories, setCategories] = useState(["one punch"]);
-
+  const [categories, setCategories] = useState([]);
+  console.log(categories);
   const onAddCategory = (category) => {
     if (categories.includes(category)) {
       Swal.fire({
@@ -27,6 +28,8 @@ export const GifExpertApp = () => {
       <hr />
 
       <AddCategory onAddCategory={onAddCategory} />
+
+      {categories.length === 0 && <PlaceHolder />}
 
       {categories.map((category) => (
         <GifGrid key={category} category={category} />
