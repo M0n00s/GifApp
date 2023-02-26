@@ -1,8 +1,10 @@
 import { useFetchGifs } from "../hooks/useFetchGifs";
 import { GifItem } from "./GifItem";
+import { Spinner } from "./Spinner";
 
 export const GifGrid = ({ category }) => {
   const { images, isLoading } = useFetchGifs(category);
+  console.log(isLoading);
   return (
     <>
       <h4>
@@ -10,7 +12,7 @@ export const GifGrid = ({ category }) => {
           {category}
         </span>
       </h4>
-      {isLoading && <p>cargando...</p>}
+      {isLoading && <Spinner />}
       <div className="card-grid">
         {images.map((image) => (
           <GifItem key={image.id} {...image} />
