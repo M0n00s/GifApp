@@ -8,7 +8,7 @@ export const AddCategory = ({ onAddCategory }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim().length <= 1) return;
-    onAddCategory(inputValue.trim());
+    onAddCategory(inputValue.toLowerCase().trim());
     setInputValue("");
   };
 
@@ -16,7 +16,7 @@ export const AddCategory = ({ onAddCategory }) => {
     <form onSubmit={onSubmit}>
       <input
         type="text"
-        placeholder="busca un gif"
+        placeholder="search for Gifs"
         value={inputValue}
         onChange={onInputchange}
       />

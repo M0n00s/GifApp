@@ -5,7 +5,11 @@ export const GifGrid = ({ category }) => {
   const { images, isLoading } = useFetchGifs(category);
   return (
     <>
-      <h3>{category}</h3>
+      <h4>
+        <span className="mt-5 badge rounded-pill text-bg-success">
+          {category}
+        </span>
+      </h4>
       {isLoading && <p>cargando...</p>}
       <div className="card-grid">
         {images.map((image) => (
